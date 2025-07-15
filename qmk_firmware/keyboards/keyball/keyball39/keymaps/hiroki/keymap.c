@@ -76,3 +76,12 @@ void pointing_device_init_user(void) {
     set_auto_mouse_enable(true);
 }
 #endif
+
+// コンボの設定
+#ifdef COMBO_ENABLE
+const uint16_t PROGMEM fd_combo[] = {KC_F, KC_D, COMBO_END};//FDコンボ
+
+combo_t key_combos[] = {
+    COMBO(fd_combo, KC_LANGUAGE_2),//FDコンボで英語を選択
+};
+#endif
