@@ -33,7 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#    define RGBLIGHT_EFFECT_TWINKLE
 #endif
 
-#define OLED_TIMEOUT 1000 // OLEDの表示時間を1000ミリ秒に設定する
+#define OLED_TIMEOUT 120000 // OLEDの表示時間を120秒に設定する
 #define TAP_CODE_DELAY 5
 
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE // オートマウスを有効にする
