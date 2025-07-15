@@ -80,8 +80,10 @@ void pointing_device_init_user(void) {
 // コンボの設定
 #ifdef COMBO_ENABLE
 const uint16_t PROGMEM fd_combo[] = {KC_F, KC_D, COMBO_END};//FDコンボ
+const uint16_t PROGMEM my_bs[] = {KC_Y, KC_H, COMBO_END};//YHコンボ
 
 combo_t key_combos[] = {
-    COMBO(fd_combo, KC_LANGUAGE_2),//FDコンボで英語を選択
+     COMBO(fd_combo, KC_LNG2)//FDコンボで英語を選択
+    ,COMBO(my_bs, KC_BSPC)//YHコンボでバックスペースを選択
 };
 #endif
