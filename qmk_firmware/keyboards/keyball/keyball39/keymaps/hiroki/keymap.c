@@ -71,9 +71,9 @@ void oledkit_render_info_user(void) {
     //コンボの有効無効を表示
     oled_write_P(PSTR("TG:"), false);
     if (is_combo_enabled()) {
-        oled_write_P(LFSTR_ON, false);
+        oled_write_P("\xB2\xB3", false);
     } else {
-        oled_write_P(LFSTR_OFF, false);
+        oled_write_P("\xB4\xB5", false);
     }
 }
 #endif
