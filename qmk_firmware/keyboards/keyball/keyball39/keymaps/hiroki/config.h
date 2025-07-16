@@ -41,4 +41,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AUTO_MOUSE_TIME 500 // オートマウスレイヤーが切り替わるまでの時間(ミリ秒)
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6 // レイヤー数を指定する
-#define SPLIT_LED_STATE_ENABLE // サブ側に情報を伝達できるようにする
+#define SPLIT_LED_STATE_ENABLE       // CapsLockなどのLED点灯状態をサブ側に伝達

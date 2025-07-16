@@ -72,17 +72,9 @@ void oledkit_render_info_user(void) {
     keyball_oled_render_layerinfo();
 }
 
-// この関数は、さっきの実装から少し修正
-void oledkit_render_logo_user(void) {
-  oled_set_cursor(0, 0); // ここ追加 1行目15列目から表示
-  //コンボの有効無効を表示
-  oled_write_P(PSTR("TG:"), false);
-  if (is_combo_enabled()) {
-      oled_write_P(LFSTR_ON, false);
-  } else {
-      oled_write_P(LFSTR_OFF, false);
-  }
-}
+// サブ側のOLED表示
+// void oledkit_render_logo_user(void) {
+// }
 #endif
 
 // オートマウスを有効にする

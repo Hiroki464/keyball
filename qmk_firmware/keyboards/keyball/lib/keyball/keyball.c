@@ -407,7 +407,14 @@ void keyball_oled_render_ballinfo(void) {
     oled_write(format_4d(keyball.last_mouse.v), false);
 
     // 2nd line, empty label and CPI
-    oled_write_P(PSTR("    \xB1\xBC\xBD"), false);
+    //コンボの有効無効を表示
+    oled_write_P(PSTR("TG"), false);
+    if (is_combo_enabled()) {
+        oled_write_P(LFSTR_ON, false);
+    } else {
+        oled_write_P(LFSTR_OFF, false);
+    }
+    oled_write_P(PSTR("\xB1\xBC\xBD"), false);
     oled_write(format_4d(keyball_get_cpi()) + 1, false);
     oled_write_P(PSTR("00 "), false);
 
