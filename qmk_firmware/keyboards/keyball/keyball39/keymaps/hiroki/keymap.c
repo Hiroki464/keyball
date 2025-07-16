@@ -70,7 +70,11 @@ void oledkit_render_info_user(void) {
     // OLEDに表示する内容を上から実装していく
     //oled_write_ln_P(PSTR("Hello, world!"), false);
     oled_write_P(PSTR("Toggle:"), false);
-    oled_write(is_combo_enabled(), false);
+    if (is_combo_enabled()) {
+        oled_write("ON", false);
+    } else {
+        oled_write("OFF", false);
+    }
 }
 #endif
 
