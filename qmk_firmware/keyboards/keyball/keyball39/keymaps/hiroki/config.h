@@ -38,7 +38,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE // オートマウスを有効にする
 #define AUTO_MOUSE_DEFAULT_LAYER 2 // オートマウスのデフォルトレイヤーを指定する
-#define AUTO_MOUSE_TIME 500 // オートマウスレイヤーが切り替わるまでの時間(ミリ秒)
+#define AUTO_MOUSE_TIME 800 // オートマウスレイヤーが切り替わるまでの時間(ミリ秒)
 #define COMBO_ONLY_FROM_LAYER 0 // コンボをレイヤー0からのみ有効にする
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6 // レイヤー数を指定する
