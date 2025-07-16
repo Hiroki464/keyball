@@ -68,9 +68,12 @@ void oledkit_render_info_user(void) {
     keyball_oled_render_ballinfo();
     //keyball_oled_render_layerinfo();
     // OLEDに表示する内容を上から実装していく
-    oled_write_ln_P(PSTR("Hello, world!"), false);
+    //oled_write_ln_P(PSTR("Hello, world!"), false);
+    oled_write_P(PSTR("Toggle:"), false);
+    oled_write(is_combo_enabled(), false);
 }
 #endif
+
 
 // オートマウスを有効にする
 #ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
