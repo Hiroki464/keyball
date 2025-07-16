@@ -66,24 +66,15 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 void oledkit_render_info_user(void) {
     keyball_oled_render_keyinfo();
     keyball_oled_render_ballinfo();
-    //keyball_oled_render_layerinfo();
-    // OLEDに表示する内容を上から実装していく
-    //oled_write_ln_P(PSTR("Hello, world!"), false);
-    oled_write_P(PSTR("Toggle:"), false);
-    if (is_combo_enabled()) {
-        oled_write_P(PSTR("ON"), false);
-    } else {
-        oled_write_P(PSTR("OFF"), false);
-    }
-}
+    keyball_oled_render_layerinfo();
 
-void oledkit_render_logo_user(void) {
-    oled_write_P(PSTR("Toggle:"), false);
-    if (is_combo_enabled()) {
-        oled_write_P(PSTR("ON"), false);
-    } else {
-        oled_write_P(PSTR("OFF"), false);
-    }
+    // コンボの有効無効を表示
+    // oled_write_P(PSTR("Toggle:"), false);
+    // if (is_combo_enabled()) {
+    //     oled_write_P(PSTR("ON"), false);
+    // } else {
+    //     oled_write_P(PSTR("OFF"), false);
+    // }
 }
 #endif
 
@@ -98,10 +89,12 @@ void pointing_device_init_user(void) {
 // コンボの設定
 #ifdef COMBO_ENABLE
 const uint16_t PROGMEM fd_combo[] = {KC_F, KC_D, COMBO_END};//FDコンボ
+const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};//JKコンボ
 const uint16_t PROGMEM my_bs[] = {KC_Y, KC_H, COMBO_END};//YHコンボ
 
 combo_t key_combos[] = {
      COMBO(fd_combo, KC_LNG2)//FDコンボで英語を選択
+     COMBO(jk_combo, KC_LNG1)//JKコンボで日本語を選択
     ,COMBO(my_bs, KC_BSPC)//YHコンボでバックスペースを選択
 };
 #endif
