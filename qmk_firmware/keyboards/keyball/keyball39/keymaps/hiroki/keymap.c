@@ -67,19 +67,18 @@ void oledkit_render_info_user(void) {
     keyball_oled_render_keyinfo();
     keyball_oled_render_ballinfo();
     keyball_oled_render_layerinfo();
-    //コンボの有効無効を表示
-    //oled_write_P(PSTR("TG:"), false);
-    // if (is_combo_enabled()) {
-    //     oled_write_P("\xB2\xB3", false);
-    // } else {
-    //     oled_write_P("\xB4\xB5", false);
-    // }
 }
 
 // この関数は、さっきの実装から少し修正
 void oledkit_render_logo_user(void) {
-  oled_set_cursor(15, 0); // ここ追加 1行目15列目から表示
+  oled_set_cursor(0, 0); // ここ追加 1行目15列目から表示
+  //コンボの有効無効を表示
   oled_write_P(PSTR("TG:"), false);
+  if (is_combo_enabled()) {
+      oled_write_P("\xB2\xB3", false);
+  } else {
+      oled_write_P("\xB4\xB5", false);
+  }
 }
 #endif
 
