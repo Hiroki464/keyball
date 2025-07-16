@@ -76,15 +76,10 @@ void oledkit_render_info_user(void) {
     // }
 }
 
-// ホストのLED状態を表示する関数
-static void oled_write_host_led_state(void) {　
-  const led_t led_state = host_keyboard_led_state();
-  oled_write_P(PSTR("Caps:"), false);
-}
 // この関数は、さっきの実装から少し修正
 void oledkit_render_logo_user(void) {
   oled_set_cursor(15, 0); // ここ追加 1行目15列目から表示
-  oled_write_host_led_state(); // ここ追加
+  oled_write_P(PSTR("TG:"), false);
 }
 #endif
 
