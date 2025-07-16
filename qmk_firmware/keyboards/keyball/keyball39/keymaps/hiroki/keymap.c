@@ -90,10 +90,12 @@ const uint16_t PROGMEM f_d_combo[]    = {KC_F, KC_D, COMBO_END};//FDコンボ
 const uint16_t PROGMEM d_bspc_combo[] = {KC_D, KC_BSPC, COMBO_END};//D,BSPCコンボ
 const uint16_t PROGMEM f_bspc_combo[] = {KC_F, KC_BSPC, COMBO_END};//F,BSPCコンボ
 const uint16_t PROGMEM j_k_combo[]    = {KC_J, KC_K, COMBO_END};//JKコンボ
+const uint16_t PROGMEM t_r_combo[]    = {KC_T, KC_R, COMBO_END};//TRコンボ
 combo_t key_combos[] = {
      COMBO(f_d_combo, KC_LNG2)//FDコンボで言語2を選択
-    ,COMBO(d_bspc_combo, KC_BTN1)//D,BSPCコンボで左クリックを選択
-    ,COMBO(f_bspc_combo, KC_BTN2)//F,BSPCコンボで右クリックを選択
     ,COMBO(j_k_combo, KC_LNG1)//JKコンボで言語1を選択
+    ,COMBO(d_bspc_combo, KC_BTN1)//D,BSPCコンボで左クリックを選択
+    ,COMBO(t_r_combo, KC_BTN1)//TRコンボで左クリックを選択
+    ,COMBO(f_bspc_combo, KC_BTN2)//F,BSPCコンボで右クリックを選択
 };
 #endif
