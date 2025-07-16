@@ -95,8 +95,8 @@ const uint16_t PROGMEM j_k_combo[]    = {KC_J, KC_K, COMBO_END};//JKコンボ
 
 combo_t key_combos[] = {
      COMBO(f_d_combo, KC_LNG2)//FDコンボで言語2を選択
-    ,COMBO(d_bspc_combo, MS_BTN1)//D,BSPCコンボで左クリックを選択
-    ,COMBO(f_bspc_combo, MS_BTN2)//F,BSPCコンボで右クリックを選択
+    ,COMBO(d_bspc_combo, KC_BTN1)//D,BSPCコンボで左クリックを選択
+    ,COMBO(f_bspc_combo, KC_BTN2)//F,BSPCコンボで右クリックを選択
     ,COMBO(j_k_combo, KC_LNG1)//JKコンボで言語1を選択
 };
 #endif
