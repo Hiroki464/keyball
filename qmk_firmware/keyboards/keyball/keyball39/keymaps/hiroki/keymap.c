@@ -53,6 +53,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 // clang-format on
 
+static const char LFSTR_ON[] PROGMEM = "\xB2\xB3";
+static const char LFSTR_OFF[] PROGMEM = "\xB4\xB5";
+
 // レイヤーを変更する
 layer_state_t layer_state_set_user(layer_state_t state) {
     // Auto enable scroll mode when the highest layer is 3
@@ -75,9 +78,9 @@ void oledkit_render_logo_user(void) {
   //コンボの有効無効を表示
   oled_write_P(PSTR("TG:"), false);
   if (is_combo_enabled()) {
-      oled_write_P("\xB2\xB3", false);
+      oled_write_P(LFSTR_ON, false);
   } else {
-      oled_write_P("\xB4\xB5", false);
+      oled_write_P(LFSTR_OFF, false);
   }
 }
 #endif
