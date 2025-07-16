@@ -68,13 +68,13 @@ void oledkit_render_info_user(void) {
     keyball_oled_render_ballinfo();
     keyball_oled_render_layerinfo();
 
-    // コンボの有効無効を表示
-    // oled_write_P(PSTR("Toggle:"), false);
-    // if (is_combo_enabled()) {
-    //     oled_write_P(PSTR("ON"), false);
-    // } else {
-    //     oled_write_P(PSTR("OFF"), false);
-    // }
+    //コンボの有効無効を表示
+    oled_write_P(PSTR("TG:"), false);
+    if (is_combo_enabled()) {
+        oled_write_P(LFSTR_ON, false);
+    } else {
+        oled_write_P(LFSTR_OFF, false);
+    }
 }
 #endif
 
