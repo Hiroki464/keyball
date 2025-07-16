@@ -66,7 +66,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 void oledkit_render_info_user(void) {
     keyball_oled_render_keyinfo();
     keyball_oled_render_ballinfo();
-    keyball_oled_render_layerinfo();
+    //keyball_oled_render_layerinfo();
+    // OLEDに表示する内容を上から実装していく
+    oled_write_ln_P(PSTR("Hello, world!"), false);
 }
 #endif
 
