@@ -68,7 +68,7 @@ void oledkit_render_info_user(void) {
     //keyball_oled_render_ballinfo();
     //keyball_oled_render_layerinfo();
 
-    oled_write_ln(PSTR("1line"), false);
+    oled_write_P(PSTR("Hello"), false);
     //oled_write_ln(PSTR("2line"), false);
     //oled_write_ln(PSTR("3line"), false);
     //oled_write_ln(PSTR("4line"), false);
