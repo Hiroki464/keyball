@@ -64,12 +64,16 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #    include "lib/oledkit/oledkit.h"
 
 void oledkit_render_info_user(void) {
-    keyball_oled_render_keyinfo();
-    keyball_oled_render_ballinfo();
-    keyball_oled_render_layerinfo();
+    //keyball_oled_render_keyinfo();
+    //keyball_oled_render_ballinfo();
+    //keyball_oled_render_layerinfo();
 
+    oled_write_ln(PSTR("1line"), false);
+    oled_write_ln(PSTR("2line"), false);
+    oled_write_ln(PSTR("3line"), false);
+    oled_write_ln(PSTR("4line"), false);
     //コンボの有効無効を表示
-    oled_write_P(PSTR("TG:"), false);
+    //oled_write_P(PSTR("TG:"), false);
     // if (is_combo_enabled()) {
     //     oled_write_P("\xB2\xB3", false);
     // } else {
