@@ -56,10 +56,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 static const char LFSTR_ON[] PROGMEM = "\xB2\xB3";
 static const char LFSTR_OFF[] PROGMEM = "\xB4\xB5";
 
-// レイヤーを変更する
+//　特定のレイヤーでスクロールモードにする
 layer_state_t layer_state_set_user(layer_state_t state) {
-    // Auto enable scroll mode when the highest layer is 3
-    keyball_set_scroll_mode(get_highest_layer(state) == 3);
+    // Auto enable scroll mode when the highest layer is 4
+    keyball_set_scroll_mode(get_highest_layer(state) == 4);
     return state;
 }
 
@@ -86,16 +86,18 @@ void pointing_device_init_user(void) {
 
 // コンボの設定
 #ifdef COMBO_ENABLE
-const uint16_t PROGMEM f_d_combo[]    = {KC_F, KC_D, COMBO_END};//FDコンボ
-const uint16_t PROGMEM d_bspc_combo[] = {KC_D, KC_BSPC, COMBO_END};//D,BSPCコンボ
-const uint16_t PROGMEM f_bspc_combo[] = {KC_F, KC_BSPC, COMBO_END};//F,BSPCコンボ
-const uint16_t PROGMEM j_k_combo[]    = {KC_J, KC_K, COMBO_END};//JKコンボ
-const uint16_t PROGMEM t_r_combo[]    = {KC_T, KC_R, COMBO_END};//TRコンボ
+const uint16_t PROGMEM e_r_combo[]    = {KC_E, KC_R, COMBO_END};//E,Rコンボ
+const uint16_t PROGMEM f_d_combo[]    = {KC_F, KC_D, COMBO_END};//F,Dコンボ
+const uint16_t PROGMEM z_x_combo[]    = {KC_Z, KC_X, COMBO_END};//Z,Xコンボ
+//const uint16_t PROGMEM d_bspc_combo[] = {KC_D, KC_BSPC, COMBO_END};//D,BSPCコンボ
+const uint16_t PROGMEM j_k_combo[]    = {KC_J, KC_K, COMBO_END};//J,Kコンボ
+
 combo_t key_combos[] = {
-     COMBO(f_d_combo, KC_LNG2)//FDコンボで言語2を選択
-    ,COMBO(j_k_combo, KC_LNG1)//JKコンボで言語1を選択
-    ,COMBO(d_bspc_combo, KC_BTN1)//D,BSPCコンボで左クリックを選択
-    ,COMBO(t_r_combo, KC_BTN1)//TRコンボで左クリックを選択
-    ,COMBO(f_bspc_combo, KC_BTN2)//F,BSPCコンボで右クリックを選択
+     COMBO(f_d_combo, KC_LNG2)//F,Dコンボで言語2を選択
+    ,COMBO(j_k_combo, KC_LNG1)//J,Kコンボで言語1を選択
+    ,COMBO(z_x_combo, KC_LSFT)//Z,Xコンボでシフトを選択
+    ,COMBO(e_r_combo, KC_BTN1)//E,Rコンボで左クリックを選択
+//    ,COMBO(d_bspc_combo, KC_BTN1)//D,BSPCコンボで左クリックを選択
+//    ,COMBO(f_bspc_combo, KC_BTN2)//F,BSPCコンボで右クリックを選択
 };
 #endif
