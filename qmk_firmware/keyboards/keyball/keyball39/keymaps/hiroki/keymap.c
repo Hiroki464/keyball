@@ -88,15 +88,15 @@ void pointing_device_init_user(void) {
 
 // コンボの設定
 #ifdef COMBO_ENABLE
-const uint16_t PROGMEM f-d_combo[]    = {KC_F, KC_D, COMBO_END};//FDコンボ
-const uint16_t PROGMEM d-bspc_combo[] = {KC_D, KC_BSPC, COMBO_END};//D,BSPCコンボ
-const uint16_t PROGMEM f-bspc_combo[] = {KC_F, KC_BSPC, COMBO_END};//F,BSPCコンボ
-const uint16_t PROGMEM j-k_combo[]    = {KC_J, KC_K, COMBO_END};//JKコンボ
+const uint16_t PROGMEM f_d_combo[]    = {KC_F, KC_D, COMBO_END};//FDコンボ
+const uint16_t PROGMEM d_bspc_combo[] = {KC_D, KC_BSPC, COMBO_END};//D,BSPCコンボ
+const uint16_t PROGMEM f_bspc_combo[] = {KC_F, KC_BSPC, COMBO_END};//F,BSPCコンボ
+const uint16_t PROGMEM j_k_combo[]    = {KC_J, KC_K, COMBO_END};//JKコンボ
 
 combo_t key_combos[] = {
-     COMBO(f-d_combo, KC_LNG2)//FDコンボで言語2を選択
-    ,COMBO(d-bspc_combo, MS_BTN1)//D,BSPCコンボで左クリックを選択
-    ,COMBO(f-bspc_combo, MS_BTN2)//F,BSPCコンボで右クリックを選択
-    ,COMBO(j-k_combo, KC_LNG1)//JKコンボで言語1を選択
+     COMBO(f_d_combo, KC_LNG2)//FDコンボで言語2を選択
+    ,COMBO(d_bspc_combo, MS_BTN1)//D,BSPCコンボで左クリックを選択
+    ,COMBO(f_bspc_combo, MS_BTN2)//F,BSPCコンボで右クリックを選択
+    ,COMBO(j_k_combo, KC_LNG1)//JKコンボで言語1を選択
 };
 #endif
