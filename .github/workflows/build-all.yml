@@ -33,7 +33,7 @@ jobs:
         keyboard: [ keyball39 ]
         # keymap: [ test, default, via]
         keymap: [ hiroki ]
-        include:
+ #       include:
  #         - keyboard: keyball46
  #           keymap:   test_Left
  #         - keyboard: keyball46
