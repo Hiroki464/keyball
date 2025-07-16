@@ -71,9 +71,18 @@ void oledkit_render_info_user(void) {
     //oled_write_ln_P(PSTR("Hello, world!"), false);
     oled_write_P(PSTR("Toggle:"), false);
     if (is_combo_enabled()) {
-        oled_write("ON", false);
+        oled_write_P(PSTR("ON"), false);
     } else {
-        oled_write("OFF", false);
+        oled_write_P(PSTR("OFF"), false);
+    }
+}
+
+void oledkit_render_logo_user(void) {
+    oled_write_P(PSTR("Toggle:"), false);
+    if (is_combo_enabled()) {
+        oled_write_P(PSTR("ON"), false);
+    } else {
+        oled_write_P(PSTR("OFF"), false);
     }
 }
 #endif
