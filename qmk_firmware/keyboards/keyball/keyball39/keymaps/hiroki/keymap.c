@@ -86,18 +86,15 @@ void pointing_device_init_user(void) {
 
 // コンボの設定
 #ifdef COMBO_ENABLE
-const uint16_t PROGMEM e_r_combo[]    = {KC_E, KC_R, COMBO_END};//E,Rコンボ
-const uint16_t PROGMEM f_d_combo[]    = {KC_F, KC_D, COMBO_END};//F,Dコンボ
-const uint16_t PROGMEM z_x_combo[]    = {KC_Z, KC_X, COMBO_END};//Z,Xコンボ
-//const uint16_t PROGMEM d_bspc_combo[] = {KC_D, KC_BSPC, COMBO_END};//D,BSPCコンボ
-const uint16_t PROGMEM j_k_combo[]    = {KC_J, KC_K, COMBO_END};//J,Kコンボ
+const uint16_t PROGMEM we_combo[]    = {KC_W, KC_E, COMBO_END}; // W,Eコンボ
+const uint16_t PROGMEM io_combo[]    = {KC_I, KC_O, COMBO_END}; // I,Oコンボ
+const uint16_t PROGMEM fd_combo[]    = {KC_F, KC_D, COMBO_END}; // F,Dコンボ
+const uint16_t PROGMEM z_x_combo[]   = {KC_Z, KC_X, COMBO_END}; // Z,Xコンボ
 
 combo_t key_combos[] = {
-     COMBO(f_d_combo, KC_LNG2)//F,Dコンボで言語2を選択
-    ,COMBO(j_k_combo, KC_LNG1)//J,Kコンボで言語1を選択
-    ,COMBO(z_x_combo, KC_LSFT)//Z,Xコンボでシフトを選択
-    ,COMBO(e_r_combo, KC_BTN1)//E,Rコンボで左クリックを選択
-//    ,COMBO(d_bspc_combo, KC_BTN1)//D,BSPCコンボで左クリックを選択
-//    ,COMBO(f_bspc_combo, KC_BTN2)//F,BSPCコンボで右クリックを選択
+     COMBO(we_combo, KC_LNG2)   // W,Eコンボで言語2を選択
+    ,COMBO(io_combo, KC_LNG1)   // I,Oコンボで言語1を選択
+    ,COMBO(fd_combo, KC_BTN1)   // F,Dコンボで左クリック
+    ,COMBO(z_x_combo, KC_LSFT)  // Z,Xコンボでシフト
 };
 #endif
