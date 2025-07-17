@@ -94,7 +94,7 @@ const uint16_t PROGMEM qaz_combo[]   = {KC_Q, KC_A, KC_Z, COMBO_END}; // Q,A,Z�
 combo_t key_combos[] = {
      COMBO(fg_combo, KC_LNG2)     // F,Gコンボで言語2を選択
     ,COMBO(jh_combo, KC_LNG1)     // J,Hコンボで言語1を選択
-    ,COMBO(cv_combo, KBC_RST)     // C,Vコンボでスクロールモード（KBC_RST）
+    ,COMBO(cv_combo, SCRL_TO)     // C,Vコンボでスクロールモード（SCRL_TO）
     ,COMBO(qaz_combo, TG(3))      // Q,A,Zコンボでレイヤー3に切替
 };
 #endif
