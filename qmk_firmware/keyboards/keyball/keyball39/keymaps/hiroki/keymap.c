@@ -86,15 +86,15 @@ void pointing_device_init_user(void) {
 
 // コンボの設定
 #ifdef COMBO_ENABLE
-const uint16_t PROGMEM we_combo[]    = {KC_W, KC_E, COMBO_END}; // W,Eコンボ
-const uint16_t PROGMEM io_combo[]    = {KC_I, KC_O, COMBO_END}; // I,Oコンボ
-const uint16_t PROGMEM fd_combo[]    = {KC_F, KC_D, COMBO_END}; // F,Dコンボ
-const uint16_t PROGMEM z_x_combo[]   = {KC_Z, KC_X, COMBO_END}; // Z,Xコンボ
+const uint16_t PROGMEM fg_combo[]    = {KC_F, KC_G, COMBO_END}; // F,Gコンボ
+const uint16_t PROGMEM jh_combo[]    = {KC_J, KC_H, COMBO_END}; // J,Hコンボ
+const uint16_t PROGMEM cv_combo[]    = {KC_C, KC_V, COMBO_END}; // C,Vコンボ
+const uint16_t PROGMEM qaz_combo[]   = {KC_Q, KC_A, KC_Z, COMBO_END}; // Q,A,Zコンボ
 
 combo_t key_combos[] = {
-     COMBO(we_combo, KC_LNG2)   // W,Eコンボで言語2を選択
-    ,COMBO(io_combo, KC_LNG1)   // I,Oコンボで言語1を選択
-    ,COMBO(fd_combo, KC_BTN1)   // F,Dコンボで左クリック
-    ,COMBO(z_x_combo, KC_LSFT)  // Z,Xコンボでシフト
+     COMBO(fg_combo, KC_LNG2)     // F,Gコンボで言語2を選択
+    ,COMBO(jh_combo, KC_LNG1)     // J,Hコンボで言語1を選択
+    ,COMBO(cv_combo, KBC_RST)     // C,Vコンボでスクロールモード（KBC_RST）
+    ,COMBO(qaz_combo, TG(3))      // Q,A,Zコンボでレイヤー3に切替
 };
 #endif
