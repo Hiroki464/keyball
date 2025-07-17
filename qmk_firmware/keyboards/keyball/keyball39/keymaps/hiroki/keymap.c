@@ -79,8 +79,19 @@ void oledkit_render_info_user(void) {
 
 // オートマウスを有効にする
 #ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
-void pointing_device_init_user(void) {
-    set_auto_mouse_enable(true);
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case SCRL_TO:
+            if (record->event.pressed) {
+                set_auto_mouse_enable(false); // 押している間はオートマウス無効
+            } else {
+                set_auto_mouse_enable(true);  // 離したら有効
+            }
+            break;
+        default:
+            break;
+    }
+    return true;
 }
 #endif
 
