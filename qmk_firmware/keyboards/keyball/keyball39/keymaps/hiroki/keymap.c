@@ -106,7 +106,7 @@ const uint16_t PROGMEM fd_combo[]    = {KC_F, KC_D, COMBO_END}; // F,Dコンボ
 combo_t key_combos[] = {
      COMBO(fg_combo, KC_LNG2)     // F,Gコンボで言語2を選択
     ,COMBO(jh_combo, KC_LNG1)     // J,Hコンボで言語1を選択
-    ,COMBO(cv_combo, SCRL_TO)     // C,Vコンボでスクロールモード（SCRL_TO）
+    ,COMBO(cv_combo, SCRL_MO)     // C,Vコンボでスクロールモード（SCRL_MO）
     ,COMBO(qaz_combo, TG(3))      // Q,A,Zコンボでレイヤー3に切替
     ,COMBO(fd_combo, KC_BTN1)     // F,Dコンボでマウス左クリック
 };
