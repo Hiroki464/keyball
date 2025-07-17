@@ -33,7 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#    define RGBLIGHT_EFFECT_TWINKLE
 #endif
 
-#define OLED_TIMEOUT 300000 // OLEDの表示時間を5分に設定する
+#define OLED_TIMEOUT 200000 // OLEDの表示時間を3分に設定する
 #define TAP_CODE_DELAY 5
 
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE // オートマウスを有効にする
@@ -41,5 +41,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AUTO_MOUSE_TIME 800 // オートマウスレイヤーが切り替わるまでの時間(ミリ秒)
 #define COMBO_ONLY_FROM_LAYER 0 // コンボをレイヤー0からのみ有効にする
 
-#define DYNAMIC_KEYMAP_LAYER_COUNT 6 // レイヤー数を指定する
+#define DYNAMIC_KEYMAP_LAYER_COUNT 7 // レイヤー数を指定する
 #define SPLIT_LED_STATE_ENABLE       // CapsLockなどのLED点灯状態をサブ側に伝達
