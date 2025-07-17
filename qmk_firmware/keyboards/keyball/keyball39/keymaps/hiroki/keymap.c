@@ -78,7 +78,7 @@ void oledkit_render_info_user(void) {
 #ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case SCRL_TO:
+        case SCRL_MO:
             if (record->event.pressed) {
                 set_auto_mouse_enable(false); // 押している間はオートマウス無効
             } else {
@@ -103,7 +103,7 @@ const uint16_t PROGMEM fd_combo[]     = {KC_F, KC_D, COMBO_END}; // F,Dコンボ
 combo_t key_combos[] = {
      COMBO(sdf_combo, KC_LNG2)     // S,D,Fコンボで言語2を選択
     ,COMBO(jkl_combo, KC_LNG1)     // J,K,Lコンボで言語1を選択
-    ,COMBO(cv_combo, SCRL_TO)      // C,Vコンボでスクロールモード（SCRL_TO）
+    ,COMBO(cv_combo, SCRL_MO)      // C,Vコンボでスクロールモード（SCRL_MO）
     ,COMBO(qaz_combo, TG(3))       // Q,A,Zコンボでレイヤー3に切替
     ,COMBO(fd_combo, KC_BTN1)      // F,Dコンボでマウス左クリック
 };
