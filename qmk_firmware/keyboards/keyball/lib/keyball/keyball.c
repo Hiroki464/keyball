@@ -226,20 +226,21 @@ __attribute__((weak)) void keyball_on_apply_motion_to_mouse_scroll(keyball_motio
             r->h = 0;
             break;
         case KEYBALL_SCROLLSNAP_MODE_HORIZONTAL:
-            r->v = 0;
+            r->v = 0
             break;
         default:
             // pass by without doing anything
             break;
     }
 #endif
+
+    // windowsOSでスクロール方向反転
+    if (detected_host_os() == OS_WINDOWS || detected_host_os() == OS_LINUX){
+        r->h = -r->h;
+        r->v = -r->v;
+    }
 }
 
-// windowsOSでスクロール方向反転
-if (detected_host_os() == OS_WINDOWS || detected_host_os() == OS_LINUX){
-    r->h = -r->h;
-    r->v = -r->v;
-}
 
 static void motion_to_mouse(keyball_motion_t *m, report_mouse_t *r, bool is_left, bool as_scroll) {
     if (as_scroll) {
