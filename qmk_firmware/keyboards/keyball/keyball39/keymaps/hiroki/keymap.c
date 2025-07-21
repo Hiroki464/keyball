@@ -107,3 +107,7 @@ combo_t key_combos[] = {
     ,COMBO(fd_combo, KC_BTN1)     // F,Dコンボでマウス左クリック
 };
 #endif
+
+// スクロール反転
+r->v = -r->v;
+r->h = -r->h;
