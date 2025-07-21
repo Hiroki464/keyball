@@ -56,6 +56,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 static const char LFSTR_ON[] PROGMEM = "\xB2\xB3";
 static const char LFSTR_OFF[] PROGMEM = "\xB4\xB5";
 
+// ファイル冒頭付近にグローバル変数を追加
+bool scroll_invert = false;
+
+// カスタムキーコードを定義
+enum custom_keycodes {
+    SCROLL_INV = SAFE_RANGE,
+};
+
 //　特定のレイヤーでスクロールモードにする
 layer_state_t layer_state_set_user(layer_state_t state) {
     // Auto enable scroll mode when the highest layer is 4
@@ -78,6 +86,11 @@ void oledkit_render_info_user(void) {
 #ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case SCROLL_INV:
+            if (record->event.pressed) {
+                scroll_invert = !scroll_invert;
+            }
+            break;
         case SCRL_MO:
             if (record->event.pressed) {
                 set_auto_mouse_enable(false); // 押している間はオートマウス無効
@@ -91,6 +104,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 #endif
+
+// スクロール方向を反転させるためのフック関数を追加
+#include "keyball.h"
+void keyball_on_apply_motion_to_mouse_scroll(keyball_motion_t *m, report_mouse_t *r, bool is_left) {
+    int16_t div = 1 << (keyball_get_scroll_div() - 1);
+    int16_t x = divmod16(&m->x, div);
+    int16_t y = divmod16(&m->y, div);
+    if (scroll_invert) {
+        y = -y;
+    }
+    r->h = clip2int8(y);
+    r->v = -clip2int8(x);
+    if (is_left) {
+        r->h = -r->h;
+        r->v = -r->v;
+    }
+    // スナップモードの処理は既存のkeyball_on_apply_motion_to_mouse_scrollの内容を参考に必要に応じて追加
+}
 
 // コンボの設定
 #ifdef COMBO_ENABLE
