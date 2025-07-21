@@ -233,12 +233,6 @@ __attribute__((weak)) void keyball_on_apply_motion_to_mouse_scroll(keyball_motio
             break;
     }
 #endif
-
-    // windowsOSでスクロール方向反転
-    if (detected_host_os() == OS_WINDOWS || detected_host_os() == OS_LINUX){
-        r->h = -r->h;
-        r->v = -r->v;
-    }
 }
 
 
