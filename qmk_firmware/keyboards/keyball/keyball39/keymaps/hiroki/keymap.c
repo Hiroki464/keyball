@@ -61,7 +61,7 @@ bool scroll_invert = false;
 
 // カスタムキーコードを定義
 enum custom_keycodes {
-    SCROLL_INV = SAFE_RANGE,
+    SCROLL_INV = 0x5F00,　// スクロール方向を反転させるキーコード
 };
 
 //　特定のレイヤーでスクロールモードにする
@@ -106,7 +106,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #endif
 
 // スクロール方向を反転させるためのフック関数を追加
-#include "keyball.h"
 void keyball_on_apply_motion_to_mouse_scroll(keyball_motion_t *m, report_mouse_t *r, bool is_left) {
     int16_t div = 1 << (keyball_get_scroll_div() - 1);
     int16_t x = divmod16(&m->x, div);
