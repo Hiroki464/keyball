@@ -211,6 +211,7 @@ __attribute__((weak)) void keyball_on_apply_motion_to_mouse_scroll(keyball_motio
 
     // Apply scroll invert if enabled
     if (keyball_scroll_invert) {
+        r->h = -r->h;
         r->v = -r->v;
     }
 

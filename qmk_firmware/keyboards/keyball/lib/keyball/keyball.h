@@ -109,7 +109,7 @@ enum keyball_keycodes {
     SSNP_HOR = QK_KB_14, // Set scroll snap mode as horizontal
     SSNP_FRE = QK_KB_15, // Set scroll snap mode as disable (free scroll)
 
-    SCRL_INV = QK_KB_16, // Toggle scroll invert (up/down)
+    SCRL_INV = QK_KB_16, // Toggle scroll invert (up/down/left/right)
 
     // Auto mouse layer control keycodes.
     // Only works when POINTING_DEVICE_AUTO_MOUSE_ENABLE is defined.
