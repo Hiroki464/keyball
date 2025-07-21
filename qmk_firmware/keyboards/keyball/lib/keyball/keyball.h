@@ -126,6 +126,7 @@ typedef union {
     struct {
         uint8_t cpi : 7;
         uint8_t sdiv : 3;  // scroll divider
+        uint8_t sinv : 1;  // scroll invert
 #ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
         uint8_t amle : 1;  // automatic mouse layer enabled
         uint16_t amlto : 5; // automatic mouse layer timeout

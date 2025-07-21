@@ -601,6 +601,7 @@ void keyboard_post_init_kb(void) {
         keyball_config_t c = {.raw = eeconfig_read_kb()};
         keyball_set_cpi(c.cpi);
         keyball_set_scroll_div(c.sdiv);
+        keyball_scroll_invert = c.sinv;
 #ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
         set_auto_mouse_enable(c.amle);
         set_auto_mouse_timeout(c.amlto == 0 ? AUTO_MOUSE_TIME : (c.amlto + 1) * AML_TIMEOUT_QU);
@@ -697,6 +698,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
             case KBC_RST:
                 keyball_set_cpi(0);
                 keyball_set_scroll_div(0);
+                keyball_scroll_invert = false;
 #ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
                 set_auto_mouse_enable(false);
                 set_auto_mouse_timeout(AUTO_MOUSE_TIME);
@@ -706,6 +708,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
                 keyball_config_t c = {
                     .cpi   = keyball.cpi_value,
                     .sdiv  = keyball.scroll_div,
+                    .sinv  = keyball_scroll_invert,
 #ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
                     .amle  = get_auto_mouse_enable(),
                     .amlto = (get_auto_mouse_timeout() / AML_TIMEOUT_QU) - 1,
