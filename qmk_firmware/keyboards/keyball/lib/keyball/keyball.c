@@ -57,20 +57,6 @@ keyball_t keyball = {
 // スクロール反転用のグローバル変数
 bool keyball_scroll_invert = false;
 
-// ユーザー設定によるOS判定
-bool keyball_force_macos_behavior = false;
-
-// 実行時のOS判定関数
-bool keyball_is_macos(void) {
-    // ユーザー設定を優先
-    if (keyball_force_macos_behavior) {
-        return true;
-    }
-    
-    // デフォルトはfalse（非macOS）
-    return false;
-}
-
 //////////////////////////////////////////////////////////////////////////////
 // Hook points
 
@@ -225,12 +211,8 @@ __attribute__((weak)) void keyball_on_apply_motion_to_mouse_scroll(keyball_motio
 
     // Apply scroll invert if enabled
     if (keyball_scroll_invert) {
-        if (keyball_is_macos()) {
-            // macOS: 上下左右を反転
-            r->h = -r->h;
-            r->v = -r->v;
-        }
-        // その他のOS: そのまま（反転しない）
+        r->h = -r->h;
+        r->v = -r->v;
     }
 
     // Scroll snapping

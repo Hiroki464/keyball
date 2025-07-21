@@ -197,15 +197,6 @@ extern keyball_t keyball;
 // スクロール反転用のグローバル変数
 extern bool keyball_scroll_invert;
 
-// ユーザー設定によるOS判定
-extern bool keyball_force_macos_behavior;
-
-// 実行時のOS判定関数
-bool keyball_is_macos(void);
-
-// スクロール反転を切り替える関数
-void keyball_toggle_scroll_invert(void);
-
 //////////////////////////////////////////////////////////////////////////////
 // Hook points
 
@@ -284,3 +275,6 @@ uint8_t keyball_get_cpi(void);
 /// In addition, if you do not upload SROM, the maximum value will be limited
 /// to 35 (3500CPI).
 void keyball_set_cpi(uint8_t cpi);
+
+// スクロール反転を切り替える関数
+void keyball_toggle_scroll_invert(void);
