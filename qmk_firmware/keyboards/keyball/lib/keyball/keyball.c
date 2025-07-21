@@ -235,6 +235,12 @@ __attribute__((weak)) void keyball_on_apply_motion_to_mouse_scroll(keyball_motio
 #endif
 }
 
+// windowsOSでスクロール方向反転
+if (detected_host_os() == OS_WINDOWS || detected_host_os() == OS_LINUX){
+    r->h = -r->h;
+    r->v = -r->v;
+}
+
 static void motion_to_mouse(keyball_motion_t *m, report_mouse_t *r, bool is_left, bool as_scroll) {
     if (as_scroll) {
         keyball_on_apply_motion_to_mouse_scroll(m, r, is_left);
