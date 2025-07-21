@@ -54,6 +54,9 @@ keyball_t keyball = {
     .pressing_keys = { BL, BL, BL, BL, BL, BL, 0 },
 };
 
+// スクロール反転用のグローバル変数
+bool keyball_scroll_invert = false;
+
 //////////////////////////////////////////////////////////////////////////////
 // Hook points
 
@@ -205,6 +208,11 @@ __attribute__((weak)) void keyball_on_apply_motion_to_mouse_scroll(keyball_motio
 #else
 #    error("unknown Keyball model")
 #endif
+
+    // Apply scroll invert if enabled
+    if (keyball_scroll_invert) {
+        r->v = -r->v;
+    }
 
     // Scroll snapping
 #if KEYBALL_SCROLLSNAP_ENABLE == 1
@@ -555,6 +563,10 @@ void keyball_set_scroll_div(uint8_t div) {
     keyball.scroll_div = div > SCROLL_DIV_MAX ? SCROLL_DIV_MAX : div;
 }
 
+void keyball_toggle_scroll_invert(void) {
+    keyball_scroll_invert = !keyball_scroll_invert;
+}
+
 uint8_t keyball_get_cpi(void) {
     return keyball.cpi_value == 0 ? CPI_DEFAULT : keyball.cpi_value;
 }
@@ -725,6 +737,10 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
                 break;
             case SCRL_DVD:
                 add_scroll_div(-1);
+                break;
+
+            case SCRL_INV:
+                keyball_toggle_scroll_invert();
                 break;
 
 #if KEYBALL_SCROLLSNAP_ENABLE == 2

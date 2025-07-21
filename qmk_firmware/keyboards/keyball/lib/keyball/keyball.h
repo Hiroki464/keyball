@@ -109,6 +109,8 @@ enum keyball_keycodes {
     SSNP_HOR = QK_KB_14, // Set scroll snap mode as horizontal
     SSNP_FRE = QK_KB_15, // Set scroll snap mode as disable (free scroll)
 
+    SCRL_INV = QK_KB_16, // Toggle scroll invert (up/down)
+
     // Auto mouse layer control keycodes.
     // Only works when POINTING_DEVICE_AUTO_MOUSE_ENABLE is defined.
     AML_TO   = QK_KB_10, // Toggle automatic mouse layer
@@ -192,6 +194,9 @@ typedef enum {
 
 extern keyball_t keyball;
 
+// スクロール反転用のグローバル変数
+extern bool keyball_scroll_invert;
+
 //////////////////////////////////////////////////////////////////////////////
 // Hook points
 
@@ -270,3 +275,6 @@ uint8_t keyball_get_cpi(void);
 /// In addition, if you do not upload SROM, the maximum value will be limited
 /// to 35 (3500CPI).
 void keyball_set_cpi(uint8_t cpi);
+
+// スクロール反転を切り替える関数
+void keyball_toggle_scroll_invert(void);
