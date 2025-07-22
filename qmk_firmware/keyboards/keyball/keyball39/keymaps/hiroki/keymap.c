@@ -93,6 +93,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 set_auto_mouse_enable(true);  // 離したら有効
             }
             break;
+        case SSNP_HOR_MO:
+            if (record->event.pressed) {
+                // キーを押した時：水平モードに切り替え
+                keyball_set_scrollsnap_mode(KEYBALL_SCROLLSNAP_MODE_HORIZONTAL);
+            } else {
+                // キーを離した時：垂直モードに戻す
+                keyball_set_scrollsnap_mode(KEYBALL_SCROLLSNAP_MODE_VERTICAL);
+            }
+            return false; // process_record_kbでの処理をスキップ
+            break;
         default:
             break;
     }
