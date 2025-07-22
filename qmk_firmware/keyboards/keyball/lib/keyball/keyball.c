@@ -196,8 +196,11 @@ __attribute__((weak)) void keyball_on_apply_motion_to_mouse_scroll(keyball_motio
 
     // apply to mouse report.
 #if KEYBALL_MODEL == 61 || KEYBALL_MODEL == 39 || KEYBALL_MODEL == 147 || KEYBALL_MODEL == 44
-    r->h = clip2int8(y);
-    r->v = -clip2int8(x);
+    // 水平スクロールモードでは左右の動きでスクロール
+    // r->h = clip2int8(y);
+    // r->v = -clip2int8(x);
+    r->h = clip2int8(x);  // 水平スクロール（左右の動き）
+    r->v = -clip2int8(y); // 垂直スクロール（上下の動き）
     if (is_left) {
         r->h = -r->h;
         r->v = -r->v;
