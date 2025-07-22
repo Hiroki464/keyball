@@ -77,6 +77,15 @@ void oledkit_render_info_user(void) {
 #ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case KC_BTN1:
+            if (record->event.pressed) {
+                // マウス左クリックが押された時にレイヤー6を有効にする
+                layer_on(6);
+            } else {
+                // マウス左クリックが離された時にレイヤー6を無効にする
+                layer_off(6);
+            }
+            break;
         case SCRL_MO:
             if (record->event.pressed) {
                 set_auto_mouse_enable(false); // 押している間はオートマウス無効
