@@ -175,6 +175,7 @@ typedef struct {
     int8_t   scroll_snap_tension_h;
 #elif KEYBALL_SCROLLSNAP_ENABLE == 2
     keyball_scrollsnap_mode_t scrollsnap_mode;
+    keyball_scrollsnap_mode_t scrollsnap_mode_prev; // 元のモードを記憶
 #endif
 
     uint16_t       last_kc;
