@@ -36,6 +36,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define OLED_TIMEOUT 200000 // OLEDの表示時間を3分に設定する
 #define TAP_CODE_DELAY 5
 
+// ホールドキーのタイミング設定（ミリ秒）
+#define TAPPING_TERM 100 // 100msに設定
+
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE // オートマウスを有効にする
 #define AUTO_MOUSE_DEFAULT_LAYER 2 // オートマウスのデフォルトレイヤーを指定する
 #define AUTO_MOUSE_TIME 800 // オートマウスレイヤーが切り替わるまでの時間(ミリ秒)
