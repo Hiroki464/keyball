@@ -196,11 +196,29 @@ __attribute__((weak)) void keyball_on_apply_motion_to_mouse_scroll(keyball_motio
 
     // apply to mouse report.
 #if KEYBALL_MODEL == 61 || KEYBALL_MODEL == 39 || KEYBALL_MODEL == 147 || KEYBALL_MODEL == 44
-    // 水平スクロールモードでは左右の動きでスクロール
     // r->h = clip2int8(y);
     // r->v = -clip2int8(x);
-    r->h = clip2int8(x);  // 水平スクロール（左右の動き）
-    r->v = -clip2int8(y); // 垂直スクロール（上下の動き）
+    
+    // スクロールスナップモードに応じて動作を分ける
+#if KEYBALL_SCROLLSNAP_ENABLE == 2
+    switch (keyball_get_scrollsnap_mode()) {
+        case KEYBALL_SCROLLSNAP_MODE_HORIZONTAL:
+            // 水平モード: 左右の動きで水平スクロール
+            r->h = clip2int8(x);
+            r->v = -clip2int8(y);
+            break;
+        default:
+            // 垂直モード・フリーモード: 元の動作
+            r->h = clip2int8(y);
+            r->v = -clip2int8(x);
+            break;
+    }
+#else
+    // デフォルト: 元の動作
+    r->h = clip2int8(y);
+    r->v = -clip2int8(x);
+#endif
+    
     if (is_left) {
         r->h = -r->h;
         r->v = -r->v;
@@ -211,7 +229,6 @@ __attribute__((weak)) void keyball_on_apply_motion_to_mouse_scroll(keyball_motio
 #else
 #    error("unknown Keyball model")
 #endif
-
     // Apply scroll invert if enabled
     if (keyball_scroll_invert) {
         r->h = -r->h;
