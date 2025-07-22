@@ -20,17 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
-// 必要な関数を直接実装
-static int16_t divmod16(int16_t *v, int16_t div) {
-    int16_t r = *v / div;
-    *v -= r * div;
-    return r;
-}
-
-static inline int8_t clip2int8(int16_t v) {
-    return (v) < -127 ? -127 : (v) > 127 ? 127 : (int8_t)v;
-}
-
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
@@ -110,49 +99,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 #endif
-
-// カスタムスクロール処理関数（デッドゾーン機能付き）
-void keyball_on_apply_motion_to_mouse_scroll(keyball_motion_t *m, report_mouse_t *r, bool is_left) {
-    int16_t div = 1 << (keyball_get_scroll_div() - 1);
-    int16_t x = divmod16(&m->x, div);
-    int16_t y = divmod16(&m->y, div);
-
-    // デッドゾーン設定
-    const int8_t DEADZONE = 2;
-    
-    // デッドゾーン適用
-    if (abs(x) < DEADZONE) x = 0;
-    if (abs(y) < DEADZONE) y = 0;
-
-    r->h = clip2int8(y);
-    r->v = -clip2int8(x);
-    
-    if (is_left) {
-        r->h = -r->h;
-        r->v = -r->v;
-    }
-
-    if (keyball_scroll_invert) {
-        r->h = -r->h;
-        r->v = -r->v;
-    }
-
-#if KEYBALL_SCROLLSNAP_ENABLE == 2
-    switch (keyball_get_scrollsnap_mode()) {
-        case KEYBALL_SCROLLSNAP_MODE_VERTICAL:
-            r->h = 0;
-            break;
-        case KEYBALL_SCROLLSNAP_MODE_HORIZONTAL:
-            r->v = 0;
-            break;
-        default:
-            // フリースクロールモードでの軸ずれ防止
-            if (abs(x) > abs(y) * 2) r->v = 0;
-            else if (abs(y) > abs(x) * 2) r->h = 0;
-            break;
-    }
-#endif
-}
 
 // コンボの設定
 #ifdef COMBO_ENABLE
