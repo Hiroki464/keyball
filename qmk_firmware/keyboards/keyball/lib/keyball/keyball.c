@@ -756,6 +756,15 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
             case SSNP_FRE:
                 keyball_set_scrollsnap_mode(KEYBALL_SCROLLSNAP_MODE_FREE);
                 break;
+            case SSNP_HOR_MO:
+                if (record->event.pressed) {
+                    // キーを押した時：一時的に水平モードに切り替え
+                    keyball_set_scrollsnap_mode(KEYBALL_SCROLLSNAP_MODE_HORIZONTAL);
+                } else {
+                    // キーを離した時：元のモード（垂直モード）に戻す
+                    keyball_set_scrollsnap_mode(KEYBALL_SCROLLSNAP_MODE_VERTICAL);
+                }
+                break;
 #endif
 
 #ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE

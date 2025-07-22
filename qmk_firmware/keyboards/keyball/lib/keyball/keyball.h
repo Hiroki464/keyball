@@ -108,6 +108,7 @@ enum keyball_keycodes {
     SSNP_VRT = QK_KB_13, // Set scroll snap mode as vertical
     SSNP_HOR = QK_KB_14, // Set scroll snap mode as horizontal
     SSNP_FRE = QK_KB_15, // Set scroll snap mode as disable (free scroll)
+    SSNP_HOR_MO = QK_KB_17, // Momentary horizontal scroll snap mode
 
     SCRL_INV = QK_KB_16, // Toggle scroll invert (up/down/left/right)
 
