@@ -108,7 +108,6 @@ enum keyball_keycodes {
     SSNP_VRT = QK_KB_13, // Set scroll snap mode as vertical
     SSNP_HOR = QK_KB_14, // Set scroll snap mode as horizontal
     SSNP_FRE = QK_KB_15, // Set scroll snap mode as disable (free scroll)
-    SSNP_HOR_MO = QK_KB_17, // Momentary horizontal scroll snap mode
 
     SCRL_INV = QK_KB_16, // Toggle scroll invert (up/down/left/right)
 
@@ -175,7 +174,6 @@ typedef struct {
     int8_t   scroll_snap_tension_h;
 #elif KEYBALL_SCROLLSNAP_ENABLE == 2
     keyball_scrollsnap_mode_t scrollsnap_mode;
-    keyball_scrollsnap_mode_t scrollsnap_mode_prev; // 元のモードを記憶
 #endif
 
     uint16_t       last_kc;

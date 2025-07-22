@@ -24,7 +24,6 @@
 | `SSNP_VRT` | `Kb 13`         | `0x7e0d` | Set scroll snap mode as vertical                                  |
 | `SSNP_HOR` | `Kb 14`         | `0x7e0e` | Set scroll snap mode as horizontal                                |
 | `SSNP_FRE` | `Kb 15`         | `0x7e0f` | Set scroll snap mode as disable (free scroll)                     |
-| `SSNP_HOR_MO` | `Kb 17`     | `0x7e11` | Enable horizontal scroll snap mode when pressing                  |
 | `SCRL_INV` | `Kb 16`         | `0x7e10` | Toggle scroll invert (up/down/left/right, saved to EEPROM)        |
 
 [^1]: CPI, scroll divider, automatic mouse layer's enable/disable, and automatic mouse layer's timeout.
@@ -50,7 +49,6 @@
 | `SSNP_VRT` | `Kb 13`         | `0x7e0d` | スクロールスナップモードを垂直にする                              |
 | `SSNP_HOR` | `Kb 14`         | `0x7e0e` | スクロールスナップモードを水平にする                              |
 | `SSNP_FRE` | `Kb 15`         | `0x7e0f` | スクロールスナップモードを無効にする(自由スクロール)              |
-| `SSNP_HOR_MO` | `Kb 17`     | `0x7e11` | キーを押している間、スクロールスナップモードを水平にする          |
 | `SCRL_INV` | `Kb 16`         | `0x7e10` | スクロール反転切り替え（上下左右反転、EEPROMに保存）              |
 
 [^2]: CPI、スクロール除数、自動マウスレイヤーのON/OFF状態、及び自動マウスレイヤのタイムアウト

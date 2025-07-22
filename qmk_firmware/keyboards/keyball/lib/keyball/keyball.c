@@ -607,7 +607,6 @@ void keyboard_post_init_kb(void) {
 #endif
 #if KEYBALL_SCROLLSNAP_ENABLE == 2
         keyball_set_scrollsnap_mode(c.ssnap);
-        keyball.scrollsnap_mode_prev = c.ssnap; // 初期化時も元のモードを設定
 #endif
     }
 
@@ -756,16 +755,6 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
                 break;
             case SSNP_FRE:
                 keyball_set_scrollsnap_mode(KEYBALL_SCROLLSNAP_MODE_FREE);
-                break;
-            case SSNP_HOR_MO:
-                if (record->event.pressed) {
-                    // キーを押した時：現在のモードを記憶して水平モードに切り替え
-                    keyball.scrollsnap_mode_prev = keyball.scrollsnap_mode;
-                    keyball_set_scrollsnap_mode(KEYBALL_SCROLLSNAP_MODE_HORIZONTAL);
-                } else {
-                    // キーを離した時：記憶した元のモードに戻す
-                    keyball_set_scrollsnap_mode(keyball.scrollsnap_mode_prev);
-                }
                 break;
 #endif
 
