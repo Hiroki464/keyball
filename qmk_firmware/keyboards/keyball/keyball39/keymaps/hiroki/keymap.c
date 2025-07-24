@@ -114,14 +114,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef COMBO_ENABLE
 const uint16_t PROGMEM sd_combo[]     = {KC_S, KC_D, COMBO_END}; // S,Dコンボ
 const uint16_t PROGMEM cv_combo[]     = {KC_C, KC_V, COMBO_END}; // C,Vコンボ
+const uint16_t PROGMEM mcomm_combo[]  = {KC_M, KC_COMM, COMBO_END}; // M,コンマコンボ
 const uint16_t PROGMEM qwer_combo[]   = {KC_Q, KC_W, KC_E, KC_R, COMBO_END}; // Q,W,E,Rコンボ
 const uint16_t PROGMEM fd_combo[]     = {KC_F, KC_D, COMBO_END}; // F,Dコンボ
-const uint16_t PROGMEM jk_combo[]     = {KC_J, KC_K, COMBO_END}; // J,Kコンボ
+const uint16_t PROGMEM fg_combo[]     = {KC_F, KC_G, COMBO_END}; // F,Gコンボ
 
 combo_t key_combos[] = {
-COMBO(fd_combo, KC_LNG2)      // F,Dコンボで言語2を選択
-,COMBO(jk_combo, KC_LNG1)     // J,Kコンボで言語1を選択
-,COMBO(cv_combo, KC_BTN1)     // C,Vコンボで左クリック
+COMBO(fd_combo, KC_BTN1)      // F,Dコンボで左クリック
+,COMBO(fg_combo, KC_BTN2)     // F,Gコンボで右クリック
+,COMBO(cv_combo, KC_LNG2)     // C,Vコンボで言語2を選択
+,COMBO(mcomm_combo, KC_LNG1)  // M,コンマコンボで言語1を選択
 ,COMBO(sd_combo, SCRL_MO)     // S,Dコンボでスクロールモード（SCRL_MO）
 ,COMBO(qwer_combo, TG(3))     // Q,W,E,Rコンボでレイヤー3に切替
 };
