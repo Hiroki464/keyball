@@ -125,8 +125,8 @@ COMBO(fd_combo, KC_BTN1)      // F,Dコンボで左クリック
 ,COMBO(fs_combo, KC_BTN2)     // F,Sコンボで右クリック
 ,COMBO(cv_combo, KC_LNG2)     // C,Vコンボで言語2を選択
 ,COMBO(mcomm_combo, KC_LNG1)  // M,コンマコンボで言語1を選択
-,COMBO(kl_combo, KC_Z)        // K,LコンボでZキー
-,COMBO(sd_combo, SCRL_MO)     // S,Dコンボでスクロールモード（SCRL_MO）
+,COMBO(sd_combo, KC_LSFT)     // S,Dコンボで左シフト
+,COMBO(kl_combo, KC_RSFT)     // K,Lコンボで右シフト
 ,COMBO(qwer_combo, TG(3))     // Q,W,E,Rコンボでレイヤー3に切替
 };
 #endif
