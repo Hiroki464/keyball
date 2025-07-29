@@ -37,7 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAP_CODE_DELAY 5
 
 // ホールドキーのタイミング設定（ミリ秒）
-#define TAPPING_TERM 160 // 160msに設定
+#define TAPPING_TERM 170 // 170msに設定
 
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE // オートマウスを有効にする
 #define AUTO_MOUSE_DEFAULT_LAYER 2 // オートマウスのデフォルトレイヤーを指定する
