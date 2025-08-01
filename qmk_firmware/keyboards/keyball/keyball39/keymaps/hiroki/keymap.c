@@ -119,6 +119,7 @@ const uint16_t PROGMEM qwer_combo[]   = {KC_Q, KC_W, KC_E, KC_R, COMBO_END}; // 
 const uint16_t PROGMEM fd_combo[]     = {KC_F, KC_D, COMBO_END}; // F,Dコンボ
 const uint16_t PROGMEM fs_combo[]     = {KC_F, KC_S, COMBO_END}; // F,Sコンボ
 const uint16_t PROGMEM kl_combo[]     = {KC_K, KC_L, COMBO_END}; // K,Lコンボ
+const uint16_t PROGMEM kj_combo[]     = {KC_K, KC_J, COMBO_END}; // K,Jコンボ
 const uint16_t PROGMEM ui_combo[]     = {KC_U, KC_I, COMBO_END}; // U,Iコンボ
 
 combo_t key_combos[] = {
@@ -128,6 +129,7 @@ COMBO(fd_combo, KC_BTN1)      // F,Dコンボで左クリック
 ,COMBO(kl_combo, KC_LNG1)     // K,Lコンボで言語1を選択
 ,COMBO(cv_combo, KC_LSFT)     // C,Vコンボで左シフト
 ,COMBO(mcomm_combo, KC_RSFT)  // M,コンマコンボで右シフト
+,COMBO(kj_combo, KC_Z)        // K,JコンボでZキー
 ,COMBO(ui_combo, KC_Z)        // U,IコンボでZキー
 ,COMBO(qwer_combo, TG(3))     // Q,W,E,Rコンボでレイヤー3に切替
 };
