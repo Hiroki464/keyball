@@ -58,7 +58,7 @@ static const char LFSTR_OFF[] PROGMEM = "\xB4\xB5";
 
 // 文字入力中のトラックボール無効化用の変数
 static uint32_t last_key_time = 0;
-#define TRACKBALL_DISABLE_TIME 50 // キー入力後50ms間トラックボールを無効にする
+#define TRACKBALL_DISABLE_TIME 200 // キー入力後200ms間トラックボールを無効にする
 
 //　特定のレイヤーでスクロールモードにする
 layer_state_t layer_state_set_user(layer_state_t state) {
