@@ -56,6 +56,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 static const char LFSTR_ON[] PROGMEM = "\xB2\xB3";
 static const char LFSTR_OFF[] PROGMEM = "\xB4\xB5";
 
+// 文字入力中のトラックボール無効化用の変数
+static uint32_t last_key_time = 0;
+#define TRACKBALL_DISABLE_TIME 50 // キー入力後50ms間トラックボールを無効にする
+
 //　特定のレイヤーでスクロールモードにする
 layer_state_t layer_state_set_user(layer_state_t state) {
     // Auto enable scroll mode when the highest layer is 4
@@ -76,6 +80,17 @@ void oledkit_render_info_user(void) {
 // オートマウスを有効にする
 #ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    // 文字キーが押された場合、タイムスタンプを記録
+    if (record->event.pressed && 
+        ((keycode >= KC_A && keycode <= KC_Z) ||
+         (keycode >= KC_1 && keycode <= KC_0) ||
+         keycode == KC_SPC || keycode == KC_ENT || keycode == KC_TAB ||
+         keycode == KC_BSPC || keycode == KC_DEL || keycode == KC_DOT ||
+         keycode == KC_COMM || keycode == KC_SCLN || keycode == KC_QUOT ||
+         keycode == KC_SLSH || keycode == KC_MINS || keycode == KC_EQL)) {
+        last_key_time = timer_read32();
+    }
+
     switch (keycode) {
         // case KC_BTN1:
         //     if (record->event.pressed) {
@@ -107,6 +122,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
     }
     return true;
+}
+
+// 文字入力直後はトラックボールの動きを無効にする
+report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
+    uint32_t current_time = timer_read32();
+    
+    // 最後の文字キー入力から50ms以内の場合、カーソル移動を無効にする
+    if (TIMER_DIFF_32(current_time, last_key_time) < TRACKBALL_DISABLE_TIME) {
+        mouse_report.x = 0;
+        mouse_report.y = 0;
+    }
+    
+    return mouse_report;
 }
 #endif
 
