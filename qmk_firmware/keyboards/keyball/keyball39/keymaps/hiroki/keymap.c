@@ -148,7 +148,8 @@ const uint16_t PROGMEM fd_combo[]     = {KC_F, KC_D, COMBO_END}; // F,Dコンボ
 const uint16_t PROGMEM fs_combo[]     = {KC_F, KC_S, COMBO_END}; // F,Sコンボ
 const uint16_t PROGMEM kl_combo[]     = {KC_K, KC_L, COMBO_END}; // K,Lコンボ
 const uint16_t PROGMEM io_combo[]     = {KC_I, KC_O, COMBO_END}; // I,Oコンボ
-const uint16_t PROGMEM we_combo[]     = {KC_W, KC_E, COMBO_END}; // W,Eコンボ
+const uint16_t PROGMEM vb_combo[]     = {KC_V, KC_B, COMBO_END}; // V,Bコンボ
+const uint16_t PROGMEM nm_combo[]     = {KC_N, KC_M, COMBO_END}; // N,Mコンボ
 
 combo_t key_combos[] = {
 COMBO(fd_combo, KC_BTN1)      // F,Dコンボで左クリック
@@ -158,7 +159,8 @@ COMBO(fd_combo, KC_BTN1)      // F,Dコンボで左クリック
 ,COMBO(cv_combo, KC_LSFT)     // C,Vコンボで左シフト
 ,COMBO(mcomm_combo, KC_RSFT)  // M,コンマコンボで右シフト
 ,COMBO(io_combo, KC_Z)        // I,OコンボでZキー
-,COMBO(we_combo, KC_N)        // W,EコンボでNキー
+,COMBO(vb_combo, KC_N)        // V,BコンボでNキー
+,COMBO(nm_combo, KC_B)        // N,MコンボでBキー
 ,COMBO(qwer_combo, TG(3))     // Q,W,E,Rコンボでレイヤー3に切替
 };
 #endif
