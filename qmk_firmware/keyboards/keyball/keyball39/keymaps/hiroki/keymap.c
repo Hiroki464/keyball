@@ -124,11 +124,6 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
     if (TIMER_DIFF_32(current_time, last_key_time) < TRACKBALL_DISABLE_TIME) {
         mouse_report.x = 0;
         mouse_report.y = 0;
-        // 文字入力中はオートマウスレイヤーも無効にする
-        set_auto_mouse_enable(false);
-    } else {
-        // 時間が経過したらオートマウスレイヤーを有効に戻す
-        set_auto_mouse_enable(true);
     }
     
     return mouse_report;
