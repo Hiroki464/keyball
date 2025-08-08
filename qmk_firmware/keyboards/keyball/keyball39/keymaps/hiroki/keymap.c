@@ -133,14 +133,15 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
 // コンボの設定
 #ifdef COMBO_ENABLE
 const uint16_t PROGMEM ds_combo[]     = {KC_D, KC_S, COMBO_END}; // D,Sコンボ
-const uint16_t PROGMEM cv_combo[]     = {KC_C, KC_V, COMBO_END}; // C,Vコンボ
-const uint16_t PROGMEM mcomm_combo[]  = {KC_M, KC_COMM, COMBO_END}; // M,コンマコンボ
+const uint16_t PROGMEM xc_combo[]     = {KC_X, KC_C, COMBO_END}; // X,Cコンボ
+const uint16_t PROGMEM commdot_combo[] = {KC_COMM, KC_DOT, COMBO_END}; // コンマ,ドットコンボ
 const uint16_t PROGMEM qwer_combo[]   = {KC_Q, KC_W, KC_E, KC_R, COMBO_END}; // Q,W,E,Rコンボ
 const uint16_t PROGMEM fd_combo[]     = {KC_F, KC_D, COMBO_END}; // F,Dコンボ
 const uint16_t PROGMEM fs_combo[]     = {KC_F, KC_S, COMBO_END}; // F,Sコンボ
 const uint16_t PROGMEM kl_combo[]     = {KC_K, KC_L, COMBO_END}; // K,Lコンボ
 const uint16_t PROGMEM io_combo[]     = {KC_I, KC_O, COMBO_END}; // I,Oコンボ
-const uint16_t PROGMEM vb_combo[]     = {KC_V, KC_B, COMBO_END}; // V,Bコンボ
+const uint16_t PROGMEM cv_combo[]     = {KC_C, KC_V, COMBO_END}; // C,Vコンボ
+const uint16_t PROGMEM bv_combo[]     = {KC_B, KC_V, COMBO_END}; // B,Vコンボ
 const uint16_t PROGMEM nm_combo[]     = {KC_N, KC_M, COMBO_END}; // N,Mコンボ
 
 combo_t key_combos[] = {
@@ -148,10 +149,11 @@ COMBO(fd_combo, KC_BTN1)      // F,Dコンボで左クリック
 ,COMBO(fs_combo, KC_BTN2)     // F,Sコンボで右クリック
 ,COMBO(ds_combo, KC_LNG2)     // D,Sコンボで言語2を選択
 ,COMBO(kl_combo, KC_LNG1)     // K,Lコンボで言語1を選択
-,COMBO(cv_combo, KC_LSFT)     // C,Vコンボで左シフト
-,COMBO(mcomm_combo, KC_RSFT)  // M,コンマコンボで右シフト
+,COMBO(xc_combo, KC_LSFT)     // X,Cコンボで左シフト
+,COMBO(commdot_combo, KC_RSFT) // コンマ,ドットコンボで右シフト
 ,COMBO(io_combo, KC_Z)        // I,OコンボでZキー
-,COMBO(vb_combo, KC_N)        // V,BコンボでNキー
+,COMBO(cv_combo, KC_N)        // C,VコンボでNキー
+,COMBO(bv_combo, KC_M)        // B,VコンボでMキー
 ,COMBO(nm_combo, KC_B)        // N,MコンボでBキー
 ,COMBO(qwer_combo, TG(3))     // Q,W,E,Rコンボでレイヤー3に切替
 };
