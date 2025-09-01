@@ -125,7 +125,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
         mouse_report.x = 0;
         mouse_report.y = 0;
     }
-    
+
     return mouse_report;
 }
 #endif
@@ -135,7 +135,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
 const uint16_t PROGMEM ds_combo[]     = {KC_D, KC_S, COMBO_END}; // D,Sコンボ
 const uint16_t PROGMEM xc_combo[]     = {KC_X, KC_C, COMBO_END}; // X,Cコンボ
 const uint16_t PROGMEM commdot_combo[] = {KC_COMM, KC_DOT, COMBO_END}; // コンマ,ドットコンボ
-const uint16_t PROGMEM qwer_combo[]   = {KC_Q, KC_W, KC_E, KC_R, COMBO_END}; // Q,W,E,Rコンボ
+//const uint16_t PROGMEM qwer_combo[]   = {KC_Q, KC_W, KC_E, KC_R, COMBO_END}; // Q,W,E,Rコンボ
 const uint16_t PROGMEM fd_combo[]     = {KC_F, KC_D, COMBO_END}; // F,Dコンボ
 const uint16_t PROGMEM fs_combo[]     = {KC_F, KC_S, COMBO_END}; // F,Sコンボ
 const uint16_t PROGMEM kl_combo[]     = {KC_K, KC_L, COMBO_END}; // K,Lコンボ
@@ -143,6 +143,7 @@ const uint16_t PROGMEM io_combo[]     = {KC_I, KC_O, COMBO_END}; // I,Oコンボ
 const uint16_t PROGMEM cv_combo[]     = {KC_C, KC_V, COMBO_END}; // C,Vコンボ
 const uint16_t PROGMEM bv_combo[]     = {KC_B, KC_V, COMBO_END}; // B,Vコンボ
 const uint16_t PROGMEM nm_combo[]     = {KC_N, KC_M, COMBO_END}; // N,Mコンボ
+const uint16_t PROGMEM klm_combo[]    = {KC_K, KC_L, KC_MINS, COMBO_END}; // K,L,-コンボ
 
 combo_t key_combos[] = {
 COMBO(fd_combo, KC_BTN1)      // F,Dコンボで左クリック
@@ -155,6 +156,7 @@ COMBO(fd_combo, KC_BTN1)      // F,Dコンボで左クリック
 ,COMBO(cv_combo, KC_N)        // C,VコンボでNキー
 ,COMBO(bv_combo, KC_M)        // B,VコンボでMキー
 ,COMBO(nm_combo, KC_B)        // N,MコンボでBキー
-,COMBO(qwer_combo, TG(3))     // Q,W,E,Rコンボでレイヤー3に切替
+//,COMBO(qwer_combo, TG(3))     // Q,W,E,Rコンボでレイヤー3に切替
+,COMBO(klm_combo, TG(3))      // K,L,-コンボでレイヤー3に切替
 };
 #endif
